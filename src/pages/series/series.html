@@ -1,18 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Search a serie</ion-title>
+    <ion-title>Search a movie</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list inset>
-    <ion-searchbar animated="true" [(ngModel)]="selectedTitle" (ionInput)="getMovies($event);" [showCancelButton]="shouldShowCancel" ></ion-searchbar>
-    <ion-item *ngFor="let movie of movies" (click)="movieSelected(movie)">
-      <ion-thumbnail item-start>
-        <img src="{{movie.Poster}}" style="background-color: black;">
-      </ion-thumbnail>
-      <h2>{{movie.Title}}</h2>
-      <p>{{movie.Year}}</p>
-    </ion-item>
-  </ion-list>
+<ion-content class="card-background-page">
+  <ion-searchbar animated="true" [(ngModel)]="selectedTitle" (ionInput)="getMovies($event);" [showCancelButton]="shouldShowCancel" ></ion-searchbar>
+  <ion-card *ngFor="let movie of movies" (click)="movieSelected(movie)">
+    <img src="{{movie.Poster}}" id="poster"/>
+    <div class="card-title">{{movie.Title}}</div>
+    <div class="card-subtitle">{{movie.Year}}</div>
+  </ion-card>
 </ion-content>

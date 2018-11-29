@@ -13,6 +13,8 @@ import { MoviesPage} from '../pages/movies/movies';
 import { SeriesPage} from '../pages/series/series';
 import { NewsPage} from '../pages/news/news';
 import { OtherPage} from '../pages/other/other';
+import {MovieDetailsPage} from "../pages/movie-details/movie-details";
+import {SerieDetailsPage} from "../pages/serie-details/serie-details";
 
 import { ApiHttpProvider } from '../providers/api-http/api-http';
 
@@ -24,7 +26,9 @@ import { ApiHttpProvider } from '../providers/api-http/api-http';
     MoviesPage,
     SeriesPage,
     NewsPage,
-    OtherPage
+    OtherPage,
+    MovieDetailsPage,
+    SerieDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { ApiHttpProvider } from '../providers/api-http/api-http';
     MoviesPage,
     SeriesPage,
     NewsPage,
-    OtherPage
+    OtherPage,
+    MovieDetailsPage,
+    SerieDetailsPage
   ],
   providers: [
     StatusBar,

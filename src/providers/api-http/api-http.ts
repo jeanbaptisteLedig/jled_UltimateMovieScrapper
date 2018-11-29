@@ -16,10 +16,11 @@ export class ApiHttpProvider {
     console.log('Hello ApiHttpProvider Provider');
   }
 
-  getMovies(event, type) {
+
+  getMovies(event, type, page) {
     console.log(event);
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'&type='+type+'&s='+event).subscribe(data => {
+      this.http.get(this.apiUrl+'&type='+type+'&s='+event+'&page='+page).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

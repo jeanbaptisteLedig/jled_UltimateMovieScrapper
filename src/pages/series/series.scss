@@ -1,3 +1,29 @@
 page-series {
+  .card-background-page {
 
+    ion-card {
+      position: relative;
+      text-align: center;
+      height:40%;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 50%;
+      font-size: 1.8em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      background-color: rgba(0,0,0,.7);
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 90%;
+      width: 100%;
+      color: #fff;
+      background-color: rgba(0,0,0,.7);
+    }
+  }
 }
