@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
+import { HomePage} from '../home/home';
 import { MoviesPage} from '../movies/movies';
 import { SeriesPage} from '../series/series';
 import { NewsPage} from '../news/news';
@@ -22,6 +23,7 @@ export class TabsPage {
 
   moviesRoot = MoviesPage
   seriesRoot = SeriesPage
+  homeRoot = HomePage
   newsRoot = NewsPage
   otherRoot = OtherPage
 
