@@ -1,2 +1,2 @@
-# jled_UltimateMovieScrapper
+# UltimateMovieScrapper by Jean-Baptiste LEDIG
 Application Ionic : Ultimate Movie Scrapper
