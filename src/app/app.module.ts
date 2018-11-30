@@ -18,6 +18,7 @@ import {SerieDetailsPage} from "../pages/serie-details/serie-details";
 
 import { ApiHttpProvider } from '../providers/api-http/api-http';
 import { StarRatingModule } from 'ionic3-star-rating';
+import { FavoriteProvider } from '../providers/favorite/favorite';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { StarRatingModule } from 'ionic3-star-rating';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiHttpProvider
+    ApiHttpProvider,
+    FavoriteProvider
   ]
 })
 export class AppModule {}
