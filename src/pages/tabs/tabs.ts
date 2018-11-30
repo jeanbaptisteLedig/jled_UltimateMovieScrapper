@@ -21,11 +21,11 @@ import { OtherPage} from '../other/other';
 })
 export class TabsPage {
 
-  moviesRoot = MoviesPage
-  seriesRoot = SeriesPage
-  homeRoot = HomePage
-  newsRoot = NewsPage
-  otherRoot = OtherPage
+  moviesRoot = MoviesPage;
+  seriesRoot = SeriesPage;
+  homeRoot = HomePage;
+  newsRoot = NewsPage;
+  otherRoot = OtherPage;
 
 
   constructor(public navCtrl: NavController) {}

@@ -19,7 +19,8 @@ export class MoviesPage {
 
     page = 1;
     movies:any;
-    
+    searchInput: string;
+
     constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
     }
 
@@ -28,27 +29,26 @@ export class MoviesPage {
     }
 
     getMovies(event) {
+        this.searchInput = event.target.value;
         this.apiHttp.getMovies(event.target.value,"movie",this.page)
             .then(data => {
-                this.movies = data['Search'];
-                console.log(this.movies);
+                this.movies = data;
             });
     }
 
     movieSelected(movie){
-        console.log("click"+movie.get);
         this.navCtrl.push(MovieDetailsPage,{movie:movie});
     }
 
     doInfinite(infiniteScroll) {
-        console.log('Begin async operation');
-
-        setTimeout(() => {
-            for (let i = 0; i < 10; i++) {
-                this.movies.push( this.movies.length);
-            }
-            console.log('Async operation has ended');
-            infiniteScroll.complete();
-        }, 500);
+        this.page++;
+        this.apiHttp.getMovies(this.searchInput,"movie",this.page)
+            .then(data => {
+                this.movies = [...this.movies, ...data];
+                infiniteScroll.complete();
+            }).catch(err => {
+                console.log(err);
+                infiniteScroll.enable(false);
+            });
     }
 }

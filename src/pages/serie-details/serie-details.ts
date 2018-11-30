@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ApiHttpProvider } from '../../providers/api-http/api-http';
 
 /**
  * Generated class for the SerieDetailsPage page.
@@ -15,11 +16,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SerieDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  movie:any;
+  id:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
+    let movie = this.navParams.get('movie');
+    this.movie = movie;
+    this.id = movie.imdbID;
+    this.getMovie(this.id);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SerieDetailsPage');
   }
 
+  getMovie(id) {
+    this.apiHttp.getMovie(id)
+        .then(data => {
+          this.movie = data;
+          console.log(this.movie);
+        });
+  }
 }

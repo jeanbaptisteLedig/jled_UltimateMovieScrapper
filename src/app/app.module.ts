@@ -17,6 +17,7 @@ import {MovieDetailsPage} from "../pages/movie-details/movie-details";
 import {SerieDetailsPage} from "../pages/serie-details/serie-details";
 
 import { ApiHttpProvider } from '../providers/api-http/api-http';
+import { StarRatingModule } from 'ionic3-star-rating';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ApiHttpProvider } from '../providers/api-http/api-http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    StarRatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

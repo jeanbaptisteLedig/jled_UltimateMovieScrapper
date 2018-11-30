@@ -18,12 +18,13 @@ export class MovieDetailsPage {
 
   movie:any;
   id:any;
+  image:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
-    let movie = this.navParams.get('movie');
-    this.movie = movie;
-    this.id = movie.imdbID;
-    this.getMovie(this.id);
+      let movie = this.navParams.get('movie');
+      this.movie = movie;
+      this.id = movie.imdbID;
+      this.getMovie(this.id);
   }
 
   ionViewDidLoad() {
@@ -34,7 +35,13 @@ export class MovieDetailsPage {
     this.apiHttp.getMovie(id)
         .then(data => {
           this.movie = data;
-          console.log(this.movie);
         });
+  }
+
+  getImage(id) {
+      this.apiHttp.getImage(id)
+          .then(image => {
+              console.log(this.image);
+          });
   }
 }

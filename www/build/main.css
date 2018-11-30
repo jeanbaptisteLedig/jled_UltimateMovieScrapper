@@ -25674,15 +25674,27 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-movie-details #title {
+  text-align: center;
+}
+
+page-movie-details .headline h1, page-movie-details .headline p {
+  display: inline;
+  vertical-align: top;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+}
+
 page-movies .card-background-page ion-card {
   position: relative;
   text-align: center;
-  height: 40%;
+  height: 300px;
 }
 
 page-movies .card-background-page .card-title {
   position: absolute;
-  top: 50%;
+  bottom: 10%;
   font-size: 1.8em;
   width: 100%;
   font-weight: bold;
@@ -25693,7 +25705,7 @@ page-movies .card-background-page .card-title {
 page-movies .card-background-page .card-subtitle {
   font-size: 1.0em;
   position: absolute;
-  top: 90%;
+  bottom: 0%;
   width: 100%;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);

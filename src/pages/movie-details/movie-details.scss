@@ -1,3 +1,13 @@
 page-movie-details {
+  #title{
+    text-align: center;
+  }
 
+  .headline h1, .headline p {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+  }
 }

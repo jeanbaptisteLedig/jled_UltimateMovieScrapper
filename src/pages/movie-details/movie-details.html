@@ -1,37 +1,50 @@
-<!--
-  Generated template for the MovieDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>{{movie.Title}}</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>{{movie.Title}}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>{{movie.Title}}</h1>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-3>
-        <img src="{{movie.Poster}}">
-      </ion-col>
-
-      <ion-col col-9>
-        <div><h4>Date de sortie : </h4><p>{{movie.Released}} ({{movie.Runtime}}) </p></div>
-        <h4>De : </h4><p>{{movie.Director}}</p>
-        <h4>Avec : </h4><p>{{movie.Actors}}</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <h4>Overview</h4>
-        <p>{{movie.Plot}}</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+    <h1 id="title">{{movie.Title}}</h1>
+    <hr>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-auto>
+                <img src="{{movie.Poster}}">
+            </ion-col>
+            <ion-col>
+                <div class="headline">
+                    <h1>Sortie le </h1><p>{{movie.Released}} ({{movie.Runtime}}) </p>
+                </div>
+                <div class="headline">
+                    <!--<ionic3-star-rating
+                            activeIcon = "ios-star"
+                            defaultIcon = "ios-star-outline"
+                            activeColor = "#000"
+                            defaultColor = "black"
+                            readonly="true"
+                            [rating]="movie.imdbRating/2">
+                    </ionic3-star-rating>-->
+                    <div class="badge badge-success">{{movie.imdbRating}}/10</div><p> pour {{movie.imdbVotes}} votes</p>
+                </div>
+                <div class="headline">
+                    <h1>Réalisé par </h1><p>{{movie.Director}}</p>
+                </div>
+                <div class="headline">
+                    <h1>Genre : </h1><p>{{movie.Genre}}</p>
+                </div>
+                <div class="headline">
+                    <h1>Avec </h1><p>{{movie.Actors}}</p>
+                </div>
+                <div>
+                    <h1>Synopsis</h1><p>{{movie.Plot}}</p>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <h4>Fiche Technique</h4>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiHttpProvider } from '../../providers/api-http/api-http';
+import { SerieDetailsPage } from "../serie-details/serie-details";
 /**
  * Generated class for the SeriesPage page.
  *
@@ -15,20 +16,26 @@ import { ApiHttpProvider } from '../../providers/api-http/api-http';
 })
 export class SeriesPage {
 
-  movies:any;
+    page = 1;
+    movies:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SeriesPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad SeriesPage');
+    }
 
-  getMovies(event) {
-    this.apiHttp.getMovies(event.target.value,"series")
-        .then(data => {
-          this.movies = data['Search'];
-          console.log(this.movies);
-        });
-  }
+    getMovies(event) {
+        this.apiHttp.getMovies(event.target.value,"series",this.page)
+            .then(data => {
+              this.movies = data;
+              console.log(this.movies);
+            });
+    }
+
+    movieSelected(movie){
+        console.log("click"+movie.get);
+        this.navCtrl.push(SerieDetailsPage,{movie:movie});
+    }
 }

@@ -6,13 +6,23 @@
 
 <ion-content class="card-background-page">
     <ion-searchbar animated="true" [(ngModel)]="selectedTitle" (ionInput)="getMovies($event);" [showCancelButton]="shouldShowCancel" ></ion-searchbar>
-    <ion-card *ngFor="let movie of movies" (click)="movieSelected(movie)">
-        <img src="{{movie.Poster}}" id="poster"/>
-        <div class="card-title">{{movie.Title}}</div>
-        <div class="card-subtitle">{{movie.Year}}</div>
-    </ion-card>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let movie of movies" col-12 col-md-4 col-xl-3>
+                <ion-card (click)="movieSelected(movie)">
+                    <img src="{{movie.Poster}}" id="poster"/>
+                    <div class="card-title">{{movie.Title}}</div>
+                    <div class="card-subtitle">{{movie.Year}}</div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 </ion-content>
