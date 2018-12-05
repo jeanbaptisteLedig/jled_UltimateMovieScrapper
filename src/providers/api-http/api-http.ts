@@ -17,15 +17,14 @@ export class ApiHttpProvider {
         console.log('Hello ApiHttpProvider Provider');
     }
 
-
     getMovies(searchText, type, page) {
         return new Promise(resolve => {
             this.http.get(this.apiUrl+'&type='+type+'&s='+searchText+'&page='+page)
-            .subscribe(data => {
-                resolve(data['Search']);
-            }, err => {
-                console.log(err);
-            });
+                .subscribe(data => {
+                    resolve(data['Search']);
+                }, err => {
+                    console.log(err);
+                });
         });
     }
 

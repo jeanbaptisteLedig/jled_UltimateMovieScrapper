@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiHttpProvider } from '../../providers/api-http/api-http';
+import { FavoriteProvider } from '../../providers/favorite/favorite';
 
 /**
  * Generated class for the MovieDetailsPage page.
@@ -20,7 +21,7 @@ export class MovieDetailsPage {
   id:any;
   image:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider, public favorite: FavoriteProvider) {
       let movie = this.navParams.get('movie');
       this.movie = movie;
       this.id = movie.imdbID;
@@ -43,5 +44,9 @@ export class MovieDetailsPage {
           .then(image => {
               console.log(this.image);
           });
+  }
+
+  addToFavorites(){
+      this.favorite.addMedia(this.movie);
   }
 }

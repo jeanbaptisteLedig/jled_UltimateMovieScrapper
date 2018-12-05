@@ -41,14 +41,12 @@ export class MoviesPage {
     }
 
     doInfinite(infiniteScroll) {
-        this.page++;
-        this.apiHttp.getMovies(this.searchInput,"movie",this.page)
-            .then(data => {
-                this.movies = [...this.movies, ...data];
-                infiniteScroll.complete();
-            }).catch(err => {
-                console.log(err);
-                infiniteScroll.enable(false);
-            });
+        this.apiHttp.getMovies(this.searchInput,"movie",this.page).then((data) => {
+            this.movies = [...this.movies, ...data];
+            this.page++;
+            infiniteScroll.complete();
+        }, () => {
+            infiniteScroll.enable(false);
+        });
     }
 }

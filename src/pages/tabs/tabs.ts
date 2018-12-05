@@ -4,7 +4,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage} from '../home/home';
 import { MoviesPage} from '../movies/movies';
 import { SeriesPage} from '../series/series';
-import { NewsPage} from '../news/news';
+import { MyFavoritesPage} from '../my-favorites/my-favorites';
 import { OtherPage} from '../other/other';
 
 /**
@@ -16,18 +16,17 @@ import { OtherPage} from '../other/other';
 
 @IonicPage()
 @Component({
-  selector: 'page-tabs',
-  templateUrl: 'tabs.html'
+    selector: 'page-tabs',
+    templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  moviesRoot = MoviesPage;
-  seriesRoot = SeriesPage;
-  homeRoot = HomePage;
-  newsRoot = NewsPage;
-  otherRoot = OtherPage;
+    homeRoot = HomePage;
+    moviesRoot = MoviesPage;
+    seriesRoot = SeriesPage;
+    favoritesRoot = MyFavoritesPage;
+    otherRoot = OtherPage;
 
-
-  constructor(public navCtrl: NavController) {}
+    constructor(public navCtrl: NavController) {}
 
 }
