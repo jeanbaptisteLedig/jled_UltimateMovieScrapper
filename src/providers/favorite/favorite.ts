@@ -12,7 +12,11 @@ import { Storage } from '@ionic/storage';
 export class FavoriteProvider {
 
     private medias: Map<string, MediasModel> = new Map();
+<<<<<<< HEAD
     public change: EventEmitter<MediasModel[]> = new EventEmitter();
+=======
+    public onChange: EventEmitter<MediasModel[]> = new EventEmitter();
+>>>>>>> favoris
 
     constructor(private storage: Storage) {
         console.log('Hello StorageProvider Provider');
@@ -22,13 +26,21 @@ export class FavoriteProvider {
     addMedia(media: MediasModel) {
         this.medias.set(media.imdbID, media);
         this.storage.set('users_medias', this.medias);
+<<<<<<< HEAD
         this.change.emit(Array.from(this.medias.values()));
+=======
+        this.onChange.emit(Array.from(this.medias.values()));
+>>>>>>> favoris
     }
 
     removeMedia(media: MediasModel) {
         this.medias.delete(media.imdbID);
         this.storage.set('users_medias', this.medias);
+<<<<<<< HEAD
         this.change.emit(Array.from(this.medias.values()));
+=======
+        this.onChange.emit(Array.from(this.medias.values()));
+>>>>>>> favoris
     }
 
     private async init() {
@@ -36,7 +48,11 @@ export class FavoriteProvider {
             const medias = await this.storage.get('user_medias');
             if (medias !== null && medias instanceof Map) {
                 this.medias = new Map<string, MediasModel>(medias);
+<<<<<<< HEAD
                 this.change.emit(Array.from(this.medias.values()));
+=======
+                this.onChange.emit(Array.from(this.medias.values()));
+>>>>>>> favoris
             } else {
                 this.medias = new Map();
             }
@@ -46,6 +62,10 @@ export class FavoriteProvider {
     }
 
     public load() {
+<<<<<<< HEAD
         this.change.emit(Array.from(this.medias.values()));
+=======
+        this.onChange.emit(Array.from(this.medias.values()));
+>>>>>>> favoris
     }
 }

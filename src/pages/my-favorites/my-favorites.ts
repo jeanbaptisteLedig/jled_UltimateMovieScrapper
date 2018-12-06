@@ -27,7 +27,11 @@ export class MyFavoritesPage {
   ionViewDidLoad() {
       console.log('ionViewDidLoad NewsPage');
 
+<<<<<<< HEAD
       this.favorite.change.subscribe((medias: MediasModel[]) => {
+=======
+      this.favorite.onChange.subscribe((medias: MediasModel[]) => {
+>>>>>>> favoris
         this.medias = medias;
       }, console.error);
       this.favorite.load()

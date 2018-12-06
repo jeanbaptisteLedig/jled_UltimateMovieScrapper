@@ -41,7 +41,11 @@ export class MoviesPage {
     }
 
     doInfinite(infiniteScroll) {
+<<<<<<< HEAD
         this.apiHttp.getMovies(this.searchInput,"movie",this.page).then((data) => {
+=======
+        this.apiHttp.getMovies(this.searchInput,"movie",this.page).subscribe((data) => {
+>>>>>>> favoris
             this.movies = [...this.movies, ...data];
             this.page++;
             infiniteScroll.complete();
