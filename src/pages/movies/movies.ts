@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiHttpProvider } from '../../providers/api-http/api-http';
-
+import { MovieDetailsPage } from '../movie-details/movie-details';
 /**
  * Generated class for the MoviesPage page.
  *
@@ -11,25 +11,49 @@ import { ApiHttpProvider } from '../../providers/api-http/api-http';
 
 @IonicPage()
 @Component({
-  selector: 'page-movies',
-  templateUrl: 'movies.html',
+    selector: 'page-movies',
+    templateUrl: 'movies.html',
 })
 export class MoviesPage {
 
-  movies:any;
+    page = 1;
+    movies:any;
+    searchInput: string;
+    public isSearchBarOpened = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MoviesPage');
-  }
+    ionViewDidLoad() {
 
-  getMovies(event) {
-    this.apiHttp.getMovies(event.target.value,"movie")
-        .then(data => {
-          this.movies = data['Search'];
-          console.log(this.movies);
+    }
+
+    getMovies(event) {
+        this.searchInput = event.target.value;
+        this.page=1;
+        this.apiHttp.getMovies(event.target.value,"movie",this.page)
+            .then(data => {
+                this.movies = data;
+            });
+    }
+
+    movieSelected(movie){
+        this.navCtrl.push(MovieDetailsPage,{movie:movie});
+    }
+
+    doInfinite(infiniteScroll) {
+        this.page++;
+        this.apiHttp.getMovies(this.searchInput,"movie",this.page)
+        .then((data:any) => {
+            if(data){
+                this.movies = [...this.movies, ...data];
+                infiniteScroll.complete();
+            }
+            else {
+                infiniteScroll.enable(false);
+            }
+        }, () => {
+            infiniteScroll.enable(false);
         });
-  }
+    }
 }

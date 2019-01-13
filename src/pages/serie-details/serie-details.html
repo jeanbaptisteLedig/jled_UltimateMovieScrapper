@@ -1,0 +1,93 @@
+<ion-header no-border>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+    <div class="movie-header">
+        <img [style.background-image]="'url(' + urlHDimage + ')'">
+    </div>
+    <div class="movie-content" padding *ngIf="movie != null">
+        <div class="movie-summary">
+            <div class="poster">
+                <div class="content">
+                    <img src="{{urlHDimage}}">
+                </div>
+            </div>
+            <div class="item-content">
+                <span class="title">{{movie.Title}}</span>
+                <span class="favorites">
+                    <button ion-button small outline item-end icon-start *ngIf="!isFavorite" (click)="addToFavorites(movie)" color="secondary">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        Add to favorites
+                    </button>
+                    <button ion-button small outline item-end icon-start *ngIf="isFavorite" (click)="removeFavorites(movie)" color="danger">
+                        <ion-icon name="heart"></ion-icon>
+                        Remove from favorites
+                    </button>
+                </span>
+                <span>
+                    <button ion-button small outline item-end icon-start (click)="shareImage(urlHDimage)" >
+                        <ion-icon name="share"></ion-icon>
+                        Partagez l'image !
+                    </button>
+                </span>
+                <span class="country">{{movie.Country}}</span>
+                <span class="genre ">{{movie.Genre}}</span>
+                <span class="line">
+                    <span class="date">{{movie.Released}}</span>
+                    <span class="time">({{movie.Runtime}})</span>
+                </span>
+                <span class="line">
+                    <span class="seasons">{{movie.totalSeasons}} Saisons</span>
+                </span>
+                <!-- services rating -->
+                <!--<div class="ratings" *ngIf="Ratings != null">
+                    <div class="imdb" *ngIf="Ratings != null">
+                        <span *ngFor="let rating of Ratings">
+                            {{rating.Source}}
+                            <span class="nb">{{rating.Value}}</span>
+                        </span>
+                    </div>
+                </div>-->
+                <div class="ratings" *ngIf="movie.imdbRating != null">
+                    <div class="imdb" *ngIf="movie.imdbRating != null">
+                        <span> IMDB <span class="nb">{{movie.imdbRating}}/10 ({{movie.imdbVotes}} votes)</span></span>
+                    </div>
+                </div>
+
+                <a href="{{movie.Website}}"><span class="key">Website</span></a>
+            </div>
+        </div>
+        <div class="movie-more">
+            <span><span class="key">Director: </span>{{movie.Director}}</span>
+            <span><span class="key">Cast: </span>{{movie.Actors}}</span>
+            <span><span class="key">Awards: </span>{{movie.Awards}}</span>
+            <span class="description">{{movie.Plot}}</span>
+
+            <ion-item>
+                <ion-label>Seasons</ion-label>
+                <ion-select [(ngModel)]="season" (ionChange)="selectedSeason(season);">
+                    <ion-option *ngFor="let season of movie.totalSeasons | toArray : 1" value="{{season}}">{{season}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-slides>
+                <ion-slide *ngFor="let episode of episodes" (click)="episodeSelected(episode.imdbID, episode.Episode)" class="seasonsSlides">
+                    <ion-card>
+                        <div class="card-title">{{episode.Title}}</div>
+                        <div class="card-subtitle">{{episode.Episode}}</div>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+
+        </div>
+    </div>
+
+</ion-content>
+
+<ion-footer *ngIf="movie?.showtimes == true">
+    <ion-toolbar>
+        <button ion-button color="primary" (click)="goToBooking()">Buy Ticket</button>
+    </ion-toolbar>
+</ion-footer>

@@ -25673,3 +25673,797 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+page-episode-details {
+  font-size: 16px;
+}
+
+page-episode-details ion-header.header ion-navbar.toolbar .toolbar-background {
+  background: none;
+  background-color: transparent;
+}
+
+page-episode-details ion-content.content .scroll-content {
+  padding-top: 0 !important;
+}
+
+page-episode-details .movie-header {
+  height: 8em;
+  position: relative;
+}
+
+page-episode-details .movie-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 0 20%;
+}
+
+page-episode-details .movie-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+page-episode-details .movie-summary {
+  overflow: visible;
+  margin-bottom: 1em;
+  padding: 0;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-episode-details .movie-summary .poster {
+  margin-top: -4em;
+  margin-right: 1em;
+  position: relative;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  min-width: auto;
+  min-height: auto;
+  padding: 0;
+}
+
+page-episode-details .movie-summary .poster:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 150%;
+}
+
+page-episode-details .movie-summary .poster > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+page-episode-details .movie-summary .poster img {
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 0 -2px 10px #555;
+  box-shadow: 0 -2px 10px #555;
+}
+
+page-episode-details .movie-summary .item-content {
+  overflow: hidden;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+}
+
+page-episode-details .movie-summary .title {
+  margin-bottom: .5em;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+page-episode-details .movie-summary .country {
+  margin-bottom: .2em;
+  font-size: .8em;
+  color: #666666;
+}
+
+page-episode-details .movie-summary .genre {
+  margin-bottom: .5em;
+  font-size: .8em;
+  color: #999999;
+}
+
+page-episode-details .movie-summary .ratings {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: .8em;
+}
+
+page-episode-details .movie-summary .ratings .imdb {
+  margin-right: 4px;
+  padding: 4px 6px;
+  border-radius: 2px;
+  background-color: #FFB10A;
+  color: black;
+  font-weight: bold;
+}
+
+page-episode-details .movie-summary .ratings .imdb .nb {
+  color: white;
+}
+
+page-episode-details .movie-summary .line {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-episode-details .movie-summary .line > * {
+  margin: 0 .4em 0 0;
+}
+
+page-episode-details .movie-summary .date {
+  font-size: .8em;
+  color: #666666;
+}
+
+page-episode-details .movie-summary .time {
+  font-size: .8em;
+  font-weight: bold;
+  color: #666666;
+}
+
+page-episode-details .movie-more {
+  font-size: .85em;
+  color: #666666;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-episode-details .movie-more span {
+  margin-bottom: .4em;
+}
+
+page-episode-details .movie-more .key {
+  font-weight: bold;
+}
+
+page-episode-details .movie-more .description {
+  margin-top: .6em;
+  text-align: justify;
+}
+
+page-episode-details ion-footer ion-toolbar.toolbar {
+  overflow: visible;
+  contain: none;
+}
+
+page-episode-details ion-footer ion-toolbar.toolbar .toolbar-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/*
+page-movie-details {
+  #title{
+    text-align: center;
+  }
+
+  #image{
+    max-width: 250px;
+    margin: 10px auto 10px auto;
+  }
+
+  .headline h1, .headline p {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+*/
+page-movie-details {
+  font-size: 16px;
+}
+
+page-movie-details ion-header.header ion-navbar.toolbar .toolbar-background {
+  background: none;
+  background-color: transparent;
+}
+
+page-movie-details ion-content.content .scroll-content {
+  padding-top: 0 !important;
+}
+
+page-movie-details .movie-header {
+  height: 8em;
+  position: relative;
+}
+
+page-movie-details .movie-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 0 20%;
+}
+
+page-movie-details .movie-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+page-movie-details .movie-summary {
+  overflow: visible;
+  margin-bottom: 1em;
+  padding: 0;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-movie-details .movie-summary .poster {
+  margin-top: -4em;
+  margin-right: 1em;
+  position: relative;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  min-width: auto;
+  min-height: auto;
+  padding: 0;
+}
+
+page-movie-details .movie-summary .poster:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 150%;
+}
+
+page-movie-details .movie-summary .poster > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+page-movie-details .movie-summary .poster img {
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 0 -2px 10px #555;
+  box-shadow: 0 -2px 10px #555;
+}
+
+page-movie-details .movie-summary .item-content {
+  overflow: hidden;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+}
+
+page-movie-details .movie-summary .title {
+  margin-bottom: .5em;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+page-movie-details .movie-summary .country {
+  margin-bottom: .2em;
+  font-size: .8em;
+  color: #666666;
+}
+
+page-movie-details .movie-summary .genre {
+  margin-bottom: .5em;
+  font-size: .8em;
+  color: #999999;
+}
+
+page-movie-details .movie-summary .ratings {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: .8em;
+}
+
+page-movie-details .movie-summary .ratings .imdb {
+  margin-right: 4px;
+  padding: 4px 6px;
+  border-radius: 2px;
+  background-color: #FFB10A;
+  color: black;
+  font-weight: bold;
+}
+
+page-movie-details .movie-summary .ratings .imdb .nb {
+  color: white;
+}
+
+page-movie-details .movie-summary .line {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-movie-details .movie-summary .line > * {
+  margin: 0 .4em 0 0;
+}
+
+page-movie-details .movie-summary .date {
+  font-size: .8em;
+  color: #666666;
+}
+
+page-movie-details .movie-summary .time {
+  font-size: .8em;
+  font-weight: bold;
+  color: #666666;
+}
+
+page-movie-details .movie-more {
+  font-size: .85em;
+  color: #666666;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-movie-details .movie-more span {
+  margin-bottom: .4em;
+}
+
+page-movie-details .movie-more .key {
+  font-weight: bold;
+}
+
+page-movie-details .movie-more .description {
+  margin-top: .6em;
+  text-align: justify;
+}
+
+page-movie-details ion-footer ion-toolbar.toolbar {
+  overflow: visible;
+  contain: none;
+}
+
+page-movie-details ion-footer ion-toolbar.toolbar .toolbar-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-movies .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+  height: 300px;
+}
+
+page-movies .card-background-page .card-title {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.8em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  background-color: black;
+}
+
+page-movies .card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  color: #fff;
+  background-color: black;
+}
+
+page-reset-password .invalid {
+  border-bottom: 1px solid #ff6153;
+}
+
+/*
+page-movie-details {
+  #title{
+    text-align: center;
+  }
+
+  #image{
+    max-width: 250px;
+    margin: 10px auto 10px auto;
+  }
+
+  .headline h1, .headline p {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+*/
+page-serie-details {
+  font-size: 16px;
+}
+
+page-serie-details ion-header.header ion-navbar.toolbar .toolbar-background {
+  background: none;
+  background-color: transparent;
+}
+
+page-serie-details ion-content.content .scroll-content {
+  padding-top: 0 !important;
+}
+
+page-serie-details .movie-header {
+  height: 8em;
+  position: relative;
+}
+
+page-serie-details .movie-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 0 20%;
+}
+
+page-serie-details .movie-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+page-serie-details .movie-summary {
+  overflow: visible;
+  margin-bottom: 1em;
+  padding: 0;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-serie-details .movie-summary .poster {
+  margin-top: -4em;
+  margin-right: 1em;
+  position: relative;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  min-width: auto;
+  min-height: auto;
+  padding: 0;
+}
+
+page-serie-details .movie-summary .poster:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 150%;
+}
+
+page-serie-details .movie-summary .poster > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+page-serie-details .movie-summary .poster img {
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 0 -2px 10px #555;
+  box-shadow: 0 -2px 10px #555;
+}
+
+page-serie-details .movie-summary .item-content {
+  overflow: hidden;
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+}
+
+page-serie-details .movie-summary .title {
+  margin-bottom: .5em;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+page-serie-details .movie-summary .country {
+  margin-bottom: .2em;
+  font-size: .8em;
+  color: #666666;
+}
+
+page-serie-details .movie-summary .seasons {
+  margin-bottom: .2em;
+  font-size: .8em;
+  color: #666666;
+}
+
+page-serie-details .movie-summary .genre {
+  margin-bottom: .5em;
+  font-size: .8em;
+  color: #999999;
+}
+
+page-serie-details .movie-summary .ratings {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: .8em;
+}
+
+page-serie-details .movie-summary .ratings .imdb {
+  margin-right: 4px;
+  padding: 4px 6px;
+  border-radius: 2px;
+  background-color: #FFB10A;
+  color: black;
+  font-weight: bold;
+}
+
+page-serie-details .movie-summary .ratings .imdb .nb {
+  color: white;
+}
+
+page-serie-details .movie-summary .line {
+  margin-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+page-serie-details .movie-summary .line > * {
+  margin: 0 .4em 0 0;
+}
+
+page-serie-details .movie-summary .date {
+  font-size: .8em;
+  color: #666666;
+}
+
+page-serie-details .movie-summary .time {
+  font-size: .8em;
+  font-weight: bold;
+  color: #666666;
+}
+
+page-serie-details .movie-more {
+  font-size: .85em;
+  color: #666666;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-serie-details .movie-more span {
+  margin-bottom: .4em;
+}
+
+page-serie-details .movie-more .key {
+  font-weight: bold;
+}
+
+page-serie-details .movie-more .description {
+  margin-top: .6em;
+  text-align: justify;
+}
+
+page-serie-details .movie-more .seasonsSlides {
+  height: 135px;
+  max-width: 25%;
+  margin-left: 2px;
+  color: black;
+}
+
+page-serie-details ion-footer ion-toolbar.toolbar {
+  overflow: visible;
+  contain: none;
+}
+
+page-serie-details ion-footer ion-toolbar.toolbar .toolbar-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-series .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+  height: 300px;
+}
+
+page-series .card-background-page .card-title {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.8em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+page-series .card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}

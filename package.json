@@ -21,13 +21,36 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.17.0",
+    "@ionic-native/firebase": "^4.19.0",
+    "@ionic-native/media-capture": "^4.18.0",
+    "@ionic-native/photo-library": "^4.18.0",
+    "@ionic-native/social-sharing": "^4.18.0",
     "@ionic-native/splash-screen": "~4.17.0",
     "@ionic-native/status-bar": "~4.17.0",
     "@ionic/pro": "2.0.3",
-    "@ionic/storage": "2.2.0",
+    "@ionic/storage": "^2.2.0",
+    "@ultimate/ngxerrors": "^1.4.0",
+    "angularfire2": "^5.1.1",
+    "cordova-browser": "5.0.4",
+    "cordova-ios": "4.5.5",
+    "cordova-plugin-add-swift-support": "^1.7.2",
+    "cordova-plugin-file": "6.0.1",
+    "cordova-plugin-file-transfer": "1.7.1",
+    "cordova-plugin-firebase": "2.0.5",
+    "cordova-plugin-ionic": "5.2.7",
+    "cordova-plugin-ionic-webview": "2.3.1",
+    "cordova-plugin-media-capture": "3.0.2",
+    "cordova-plugin-photo-library": "2.2.0",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-x-socialsharing": "5.4.3",
+    "cordova-sqlite-storage": "2.5.2",
+    "es6-promise-plugin": "4.2.2",
+    "firebase": "^5.7.3",
     "http": "0.0.0",
     "ionic-angular": "3.9.2",
+    "ionic3-star-rating": "^1.1.4",
     "ionicons": "3.0.0",
+    "material-design-icons": "^3.0.1",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
@@ -36,5 +59,28 @@
     "@ionic/app-scripts": "3.2.1",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "bcb63c5d",
+        "CHANNEL_NAME": "production",
+        "UPDATE_API": "https://api.ionicjs.com",
+        "UPDATE_METHOD": "background",
+        "MAX_STORE": "2",
+        "MIN_BACKGROUND_DURATION": "30"
+      },
+      "cordova-plugin-photo-library": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "To choose and save photos"
+      },
+      "cordova-plugin-media-capture": {
+        "CAMERA_USAGE_DESCRIPTION": "App would like to access the camera.",
+        "MICROPHONE_USAGE_DESCRIPTION": "App would like to access the microphone.",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "App would like to access the library."
+      },
+      "cordova-plugin-firebase": {}
+    }
+  }
 }
