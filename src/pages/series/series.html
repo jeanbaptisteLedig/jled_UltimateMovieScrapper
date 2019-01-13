@@ -1,14 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Search a movie</ion-title>
+    <ion-title *ngIf="!isSearchBarOpened">
+      Search a serie
+    </ion-title>
+    <ion-searchbar
+            *ngIf="isSearchBarOpened"
+            animated="true"
+            [(ngModel)]="selectedTitle"
+            (ionInput)="getMovies($event);"
+            [showCancelButton]="true "
+            (ionCancel)="isSearchBarOpened=false">
+    </ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true" >
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-searchbar animated="true" [(ngModel)]="selectedTitle" (ionInput)="getMovies($event);" [showCancelButton]="shouldShowCancel" ></ion-searchbar>
-  <ion-card *ngFor="let movie of movies" (click)="movieSelected(movie)">
-    <img src="{{movie.Poster}}" id="poster"/>
-    <div class="card-title">{{movie.Title}}</div>
-    <div class="card-subtitle">{{movie.Year}}</div>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let movie of movies" col-6 col-md-4 col-lg-3>
+        <ion-card (click)="movieSelected(movie)">
+          <img alt="poster" [src]="movie.Poster=='N/A' ? '../../assets/imgs/noImageAvailable.jpg' : movie.Poster" />
+          <div class="card-title">{{movie.Title}}</div>
+          <div class="card-subtitle">{{movie.Year}}</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+            loadingSpinner="crescent">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

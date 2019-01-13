@@ -30,7 +30,7 @@ export class ApiHttpProvider {
 
     getMovie(id) {
         return new Promise(resolve => {
-            this.http.get(this.apiUrl+'&i='+id)
+            this.http.get(this.apiUrl+'&i='+id+'&plot=full')
             .subscribe(data => {
                 resolve(data);
             }, err => {
@@ -39,14 +39,29 @@ export class ApiHttpProvider {
         });
     }
 
-    getImage(id) {
+    getSeason(id, season){
         return new Promise(resolve => {
-            this.http.get(this.apiUrlImg+'&h=600&i='+id)
-            .subscribe(data => {
-                resolve(data);
-            }, err => {
-                console.log(err);
-            });
+            this.http.get(this.apiUrl+'&i='+id+'&plot=full&season='+season)
+                .subscribe(data => {
+                    resolve(data['Episodes']);
+                }, err => {
+                    console.log(err);
+                });
         });
+    }
+
+    getEpisode(id){
+        return new Promise(resolve => {
+            this.http.get(this.apiUrl+'&i='+id+'&plot=full')
+                .subscribe(data => {
+                    resolve(data);
+                }, err => {
+                    console.log(err);
+                });
+        });
+    }
+
+    getImage(id) {
+        return this.apiUrlImg+'&i='+id+'&h=600';
     }
 }

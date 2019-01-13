@@ -18,6 +18,8 @@ export class SeriesPage {
 
     page = 1;
     movies:any;
+    searchInput: string;
+    public isSearchBarOpened = false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public apiHttp: ApiHttpProvider) {
     }
@@ -27,15 +29,25 @@ export class SeriesPage {
     }
 
     getMovies(event) {
+        this.searchInput = event.target.value;
+        this.page=1;
         this.apiHttp.getMovies(event.target.value,"series",this.page)
             .then(data => {
-              this.movies = data;
-              console.log(this.movies);
+                this.movies = data;
             });
     }
 
     movieSelected(movie){
-        console.log("click"+movie.get);
         this.navCtrl.push(SerieDetailsPage,{movie:movie});
+    }
+
+    doInfinite(infiniteScroll) {
+        this.page++;
+        this.apiHttp.getMovies(this.searchInput,"movie",this.page).then((data:any) => {
+            this.movies = [...this.movies, ...data];
+            infiniteScroll.complete();
+        }, () => {
+            infiniteScroll.enable(false);
+        });
     }
 }

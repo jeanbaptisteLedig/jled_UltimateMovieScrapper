@@ -1,5 +1,4 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { MediasModel } from "../../app/models/MediasModel";
 import { Storage } from '@ionic/storage';
 
 /*
@@ -11,48 +10,36 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class FavoriteProvider {
 
-    private medias: Map<string, MediasModel> = new Map();
-<<<<<<< HEAD
-    public change: EventEmitter<MediasModel[]> = new EventEmitter();
-=======
-    public onChange: EventEmitter<MediasModel[]> = new EventEmitter();
->>>>>>> favoris
+    private medias: Map<string, any> = new Map();
+    public change: EventEmitter<any[]> = new EventEmitter();
 
     constructor(private storage: Storage) {
         console.log('Hello StorageProvider Provider');
         this.init();
     }
 
-    addMedia(media: MediasModel) {
+    addMedia(media: any) {
         this.medias.set(media.imdbID, media);
-        this.storage.set('users_medias', this.medias);
-<<<<<<< HEAD
+        this.storage.set('user_medias', this.medias);
         this.change.emit(Array.from(this.medias.values()));
-=======
-        this.onChange.emit(Array.from(this.medias.values()));
->>>>>>> favoris
     }
 
-    removeMedia(media: MediasModel) {
+    removeMedia(media: any) {
         this.medias.delete(media.imdbID);
-        this.storage.set('users_medias', this.medias);
-<<<<<<< HEAD
+        this.storage.set('user_medias', this.medias);
         this.change.emit(Array.from(this.medias.values()));
-=======
-        this.onChange.emit(Array.from(this.medias.values()));
->>>>>>> favoris
+    }
+
+    public isFavorite(id : any){
+        return this.medias.has(id);
     }
 
     private async init() {
         try {
             const medias = await this.storage.get('user_medias');
             if (medias !== null && medias instanceof Map) {
-                this.medias = new Map<string, MediasModel>(medias);
-<<<<<<< HEAD
+                this.medias = new Map<string, any>(medias);
                 this.change.emit(Array.from(this.medias.values()));
-=======
-                this.onChange.emit(Array.from(this.medias.values()));
->>>>>>> favoris
             } else {
                 this.medias = new Map();
             }
@@ -62,10 +49,6 @@ export class FavoriteProvider {
     }
 
     public load() {
-<<<<<<< HEAD
         this.change.emit(Array.from(this.medias.values()));
-=======
-        this.onChange.emit(Array.from(this.medias.values()));
->>>>>>> favoris
     }
 }
