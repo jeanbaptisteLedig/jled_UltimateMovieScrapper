@@ -15,7 +15,7 @@
   </ion-navbar>
 </ion-header>
 
-
+<!--
 <ion-content [hidden]="isOnline">
   <ion-segment [(ngModel)]="user_status" color="primary">
     <ion-segment-button value="signin">
@@ -27,42 +27,7 @@
   </ion-segment>
 
   <div [ngSwitch]="user_status">
-    <ion-list *ngSwitchCase="'signin'">
-      <form (ngSubmit)="login()" [formGroup]="signinForm">
-        <ion-list inset>
-          <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched','dirty']) }">
-            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
-          </ion-item>
-          <div ngxErrors="email" #emailErrors="ngxErrors">
-            <div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']">It should
-              be a valid email</div>
-          </div>
-          <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
-            <ion-input type="password" placeholder="Password"
-                       formControlName="password"></ion-input>
-          </ion-item>
-          <div ngxErrors="password" #passwordErrors="ngxErrors">
-            <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be
-              at least 5 characters</div>
-          </div>
-        </ion-list>
-        <div padding-horizontal>
-          <div class="form-error">{{loginError}}</div>
-          <button ion-button full type="submit" [disabled]="!signinForm.valid">Log
-            in</button>
-          <div class="login-footer">
-            <p>
-              Si vous êtes un nouvel utilisateur, veuillez-vous inscrire dans l'onglet "S'inscrire"
-            </p>
-          </div>
-        </div>
-      </form>
-      <ion-buttons>
-        <button ion-button icon-end color="royal" (click)="goToResetPassword()">
-          Mot de passe oublié ?
-        </button>
-      </ion-buttons>
-    </ion-list>
+
 
     <ion-list *ngSwitchCase="'signup'">
       <form (ngSubmit)="signup()" [formGroup]="signupForm">
@@ -110,4 +75,74 @@
         <span><span class="key">Email: </span>{{userEmail}}</span>
       </div>
   </div>
+</ion-content>
+-->
+
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Settings
+    </ion-list-header>
+    <button ion-item [hidden]="isOnline" (click)="goToSignIn()">
+      <ion-icon name="plane" item-start color="danger"></ion-icon>
+      <ion-label>Sign in</ion-label>
+    </button>
+    <button ion-item [hidden]="!isOnline">
+      <ion-icon name="wifi" item-start color="primary"></ion-icon>
+      <ion-label>{{userEmail}}</ion-label>
+    </button>
+    <button ion-item>
+      <ion-icon name="bluetooth" item-start color="primary"></ion-icon>
+      <ion-label>Mon compte</ion-label>
+      <ion-note item-end>Off</ion-note>
+    </button>
+    <button ion-item>
+      <ion-icon name="call" item-start color="secondary"></ion-icon>
+      <ion-label>Cellular</ion-label>
+    </button>
+    <button ion-item>
+      <ion-icon name="link" item-start color="secondary"></ion-icon>
+      <ion-label>Personal Hotspot</ion-label>
+      <ion-note item-end>Off</ion-note>
+    </button>
+  </ion-list>
+  <ion-list radio-group>
+    <ion-list-header>
+      Silence Phone
+    </ion-list-header>
+    <ion-item>
+      <ion-label color="dark">Always</ion-label>
+      <ion-radio value="always" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">Only while phone is locked</ion-label>
+      <ion-radio value="locked"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Apps Installed
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="ionic" item-start color="primary"></ion-icon>
+      <ion-label>Ionic View</ion-label>
+      <button ion-button outline item-end>Uninstall</button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="brush" item-start color="primary"></ion-icon>
+      <ion-label>Ionic Creator</ion-label>
+      <button ion-button outline item-end>Uninstall</button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-octocat" item-start color="dark"></ion-icon>
+      <ion-label>Hubstruck</ion-label>
+      <button ion-button outline item-end>Uninstall</button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="paw" item-start color="danger"></ion-icon>
+      <ion-label>Barkpark</ion-label>
+      <button ion-button outline item-end>Uninstall</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

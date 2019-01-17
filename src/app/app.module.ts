@@ -26,6 +26,8 @@ import { SeasonDetailsPage } from "../pages/season-details/season-details";
 import { EpisodeDetailsPage } from "../pages/episode-details/episode-details";
 import { ExportPopoverPage } from "../pages/export-popover/export-popover";
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { MyAccountPage } from '../pages/my-account/my-account';
 
 import { ApiHttpProvider } from '../providers/api-http/api-http';
 import { FavoriteProvider } from '../providers/favorite/favorite';
@@ -60,6 +62,8 @@ export const firebaseConfig = {
     MyFavoritesPage,
     ExportPopoverPage,
     ResetPasswordPage,
+    SignInPage,
+    MyAccountPage,
     ToArrayPipe
   ],
   bootstrap: [IonicApp],
@@ -87,6 +91,8 @@ export const firebaseConfig = {
     EpisodeDetailsPage,
     MyFavoritesPage,
     ResetPasswordPage,
+    SignInPage,
+    MyAccountPage,
     ExportPopoverPage
   ],
   providers: [

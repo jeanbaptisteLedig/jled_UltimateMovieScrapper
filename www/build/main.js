@@ -642,6 +642,7 @@ var MyFavoritesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(784);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reset_password_reset_password__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sign_in_sign_in__ = __webpack_require__(832);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -651,6 +652,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -743,21 +745,18 @@ var OtherPage = /** @class */ (function () {
     OtherPage.prototype.goToResetPassword = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__reset_password_reset_password__["a" /* ResetPasswordPage */]);
     };
+    OtherPage.prototype.goToSignIn = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__sign_in_sign_in__["a" /* SignInPage */]);
+    };
     OtherPage = OtherPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-other',template:/*ion-inline-start:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/other/other.html"*/'<!--\n  Generated template for the OtherPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Paramètres</ion-title>\n    <ion-buttons end [hidden]="!isOnline">\n      <button ion-button icon-only (click)="logout()">\n        <ion-icon name="log-out"></ion-icon> Logout\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content [hidden]="isOnline">\n  <ion-segment [(ngModel)]="user_status" color="primary">\n    <ion-segment-button value="signin">\n      Se connecter\n    </ion-segment-button>\n    <ion-segment-button value="signup">\n      S\'inscrire\n    </ion-segment-button>\n  </ion-segment>\n\n  <div [ngSwitch]="user_status">\n    <ion-list *ngSwitchCase="\'signin\'">\n      <form (ngSubmit)="login()" [formGroup]="signinForm">\n        <ion-list inset>\n          <ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\',\'dirty\']) }">\n            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n          </ion-item>\n          <div ngxErrors="email" #emailErrors="ngxErrors">\n            <div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\', \'dirty\']">It should\n              be a valid email</div>\n          </div>\n          <ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n            <ion-input type="password" placeholder="Password"\n                       formControlName="password"></ion-input>\n          </ion-item>\n          <div ngxErrors="password" #passwordErrors="ngxErrors">\n            <div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be\n              at least 5 characters</div>\n          </div>\n        </ion-list>\n        <div padding-horizontal>\n          <div class="form-error">{{loginError}}</div>\n          <button ion-button full type="submit" [disabled]="!signinForm.valid">Log\n            in</button>\n          <div class="login-footer">\n            <p>\n              Si vous êtes un nouvel utilisateur, veuillez-vous inscrire dans l\'onglet "S\'inscrire"\n            </p>\n          </div>\n        </div>\n      </form>\n      <ion-buttons>\n        <button ion-button icon-end color="royal" (click)="goToResetPassword()">\n          Mot de passe oublié ?\n        </button>\n      </ion-buttons>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'signup\'">\n      <form (ngSubmit)="signup()" [formGroup]="signupForm">\n        <ion-list inset>\n          <ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\']) }">\n            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n          </ion-item>\n          <div ngxErrors="email" #emailErrors="ngxErrors">\n            <div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\']">It should be a\n              valid email</div>\n          </div>\n          <ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n            <ion-input type="password" placeholder="Password"\n                       formControlName="password"></ion-input>\n          </ion-item>\n          <div ngxErrors="password" #passwordErrors="ngxErrors">\n            <div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be\n              at least 6 characters</div>\n          </div>\n        </ion-list>\n        <div padding-horizontal>\n          <div class="form-error">{{signupError}}</div>\n          <button ion-button full type="submit" [disabled]="!signupForm.valid">Sign up</button>\n        </div>\n      </form>\n      <ion-list>\n        <button ion-button icon-left block clear (click)="loginWithGoogle()">\n          <ion-icon name="logo-google"></ion-icon>\n          Log in with Google\n        </button>\n      </ion-list>\n    </ion-list>\n  </div>\n</ion-content>\n\n<ion-content [hidden]="!isOnline">\n  <div class="content" padding >\n      <div class="poster">\n        <div class="content">\n          <img [src]="userPicture" />\n        </div>\n      </div>\n      <div class="item-content">\n        <span class="title">{{userName}}</span>\n        <span><span class="key">Email: </span>{{userEmail}}</span>\n      </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/other/other.html"*/,
+            selector: 'page-other',template:/*ion-inline-start:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/other/other.html"*/'<!--\n  Generated template for the OtherPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Paramètres</ion-title>\n    <ion-buttons end [hidden]="!isOnline">\n      <button ion-button icon-only (click)="logout()">\n        <ion-icon name="log-out"></ion-icon> Logout\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<!--\n<ion-content [hidden]="isOnline">\n  <ion-segment [(ngModel)]="user_status" color="primary">\n    <ion-segment-button value="signin">\n      Se connecter\n    </ion-segment-button>\n    <ion-segment-button value="signup">\n      S\'inscrire\n    </ion-segment-button>\n  </ion-segment>\n\n  <div [ngSwitch]="user_status">\n\n\n    <ion-list *ngSwitchCase="\'signup\'">\n      <form (ngSubmit)="signup()" [formGroup]="signupForm">\n        <ion-list inset>\n          <ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\']) }">\n            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n          </ion-item>\n          <div ngxErrors="email" #emailErrors="ngxErrors">\n            <div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\']">It should be a\n              valid email</div>\n          </div>\n          <ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n            <ion-input type="password" placeholder="Password"\n                       formControlName="password"></ion-input>\n          </ion-item>\n          <div ngxErrors="password" #passwordErrors="ngxErrors">\n            <div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be\n              at least 6 characters</div>\n          </div>\n        </ion-list>\n        <div padding-horizontal>\n          <div class="form-error">{{signupError}}</div>\n          <button ion-button full type="submit" [disabled]="!signupForm.valid">Sign up</button>\n        </div>\n      </form>\n      <ion-list>\n        <button ion-button icon-left block clear (click)="loginWithGoogle()">\n          <ion-icon name="logo-google"></ion-icon>\n          Log in with Google\n        </button>\n      </ion-list>\n    </ion-list>\n  </div>\n</ion-content>\n\n<ion-content [hidden]="!isOnline">\n  <div class="content" padding >\n      <div class="poster">\n        <div class="content">\n          <img [src]="userPicture" />\n        </div>\n      </div>\n      <div class="item-content">\n        <span class="title">{{userName}}</span>\n        <span><span class="key">Email: </span>{{userEmail}}</span>\n      </div>\n  </div>\n</ion-content>\n-->\n\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>\n      Settings\n    </ion-list-header>\n    <button ion-item [hidden]="isOnline" (click)="goToSignIn()">\n      <ion-icon name="plane" item-start color="danger"></ion-icon>\n      <ion-label>Sign in</ion-label>\n    </button>\n    <button ion-item [hidden]="!isOnline">\n      <ion-icon name="wifi" item-start color="primary"></ion-icon>\n      <ion-label>{{userEmail}}</ion-label>\n    </button>\n    <button ion-item>\n      <ion-icon name="bluetooth" item-start color="primary"></ion-icon>\n      <ion-label>Mon compte</ion-label>\n      <ion-note item-end>Off</ion-note>\n    </button>\n    <button ion-item>\n      <ion-icon name="call" item-start color="secondary"></ion-icon>\n      <ion-label>Cellular</ion-label>\n    </button>\n    <button ion-item>\n      <ion-icon name="link" item-start color="secondary"></ion-icon>\n      <ion-label>Personal Hotspot</ion-label>\n      <ion-note item-end>Off</ion-note>\n    </button>\n  </ion-list>\n  <ion-list radio-group>\n    <ion-list-header>\n      Silence Phone\n    </ion-list-header>\n    <ion-item>\n      <ion-label color="dark">Always</ion-label>\n      <ion-radio value="always" checked></ion-radio>\n    </ion-item>\n    <ion-item>\n      <ion-label color="dark">Only while phone is locked</ion-label>\n      <ion-radio value="locked"></ion-radio>\n    </ion-item>\n  </ion-list>\n  <ion-list>\n    <ion-list-header>\n      Apps Installed\n    </ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start color="primary"></ion-icon>\n      <ion-label>Ionic View</ion-label>\n      <button ion-button outline item-end>Uninstall</button>\n    </ion-item>\n    <ion-item>\n      <ion-icon name="brush" item-start color="primary"></ion-icon>\n      <ion-label>Ionic Creator</ion-label>\n      <button ion-button outline item-end>Uninstall</button>\n    </ion-item>\n    <ion-item>\n      <ion-icon name="logo-octocat" item-start color="dark"></ion-icon>\n      <ion-label>Hubstruck</ion-label>\n      <button ion-button outline item-end>Uninstall</button>\n    </ion-item>\n    <ion-item>\n      <ion-icon name="paw" item-start color="danger"></ion-icon>\n      <ion-label>Barkpark</ion-label>\n      <button ion-button outline item-end>Uninstall</button>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/other/other.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["AngularFireAuth"]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* PopoverController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */]) === "function" && _g || Object])
     ], OtherPage);
     return OtherPage;
-    var OtherPage_1;
+    var OtherPage_1, _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=other.js.map
@@ -994,51 +993,59 @@ webpackEmptyAsyncContext.id = 223;
 var map = {
 	"../pages/episode-details/episode-details.module": [
 		817,
-		11
+		28
 	],
 	"../pages/export-popover/export-popover.module": [
 		818,
-		10
+		27
 	],
 	"../pages/movie-details/movie-details.module": [
 		819,
-		9
+		11
 	],
 	"../pages/movies/movies.module": [
 		820,
-		8
+		10
+	],
+	"../pages/my-account/my-account.module": [
+		829,
+		1
 	],
 	"../pages/my-favorites/my-favorites.module": [
 		821,
-		7
+		9
 	],
 	"../pages/news/news.module": [
 		822,
-		6
+		8
 	],
 	"../pages/other/other.module": [
 		823,
-		5
+		7
 	],
 	"../pages/reset-password/reset-password.module": [
 		824,
-		4
+		6
 	],
 	"../pages/season-details/season-details.module": [
 		825,
-		3
+		5
 	],
 	"../pages/serie-details/serie-details.module": [
 		826,
-		2
+		4
 	],
 	"../pages/series/series.module": [
 		827,
-		1
+		3
+	],
+	"../pages/sign-in/sign-in.module": [
+		831,
+		0
 	],
 	"../pages/tabs/tabs.module": [
 		828,
-		0
+		2
 	]
 };
 function webpackAsyncContext(req) {
@@ -1217,17 +1224,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_episode_details_episode_details__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_export_popover_export_popover__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_reset_password_reset_password__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_api_http_api_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_favorite_favorite__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__services_auth_service__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ultimate_ngxerrors__ = __webpack_require__(814);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pipes_to_array_to_array__ = __webpack_require__(816);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_sign_in_sign_in__ = __webpack_require__(832);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_my_account_my_account__ = __webpack_require__(830);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_api_http_api_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_favorite_favorite__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_auth_service__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ultimate_ngxerrors__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pipes_to_array_to_array__ = __webpack_require__(816);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1287,11 +1298,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_20__pages_my_favorites_my_favorites__["a" /* MyFavoritesPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_export_popover_export_popover__["a" /* ExportPopoverPage */],
                 __WEBPACK_IMPORTED_MODULE_24__pages_reset_password_reset_password__["a" /* ResetPasswordPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pipes_to_array_to_array__["a" /* ToArrayPipe */]
+                __WEBPACK_IMPORTED_MODULE_25__pages_sign_in_sign_in__["a" /* SignInPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_my_account_my_account__["a" /* MyAccountPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pipes_to_array_to_array__["a" /* ToArrayPipe */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_28__ultimate_ngxerrors__["a" /* NgxErrorsModule */],
+                __WEBPACK_IMPORTED_MODULE_30__ultimate_ngxerrors__["a" /* NgxErrorsModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
                     links: [
@@ -1306,7 +1319,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/season-details/season-details.module#SeasonDetailsPageModule', name: 'SeasonDetailsPage', segment: 'season-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/serie-details/serie-details.module#SerieDetailsPageModule', name: 'SerieDetailsPage', segment: 'serie-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/series/series.module#SeriesPageModule', name: 'SeriesPage', segment: 'series', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/my-account/my-account.module#MyAccountPageModule', name: 'MyAccountPage', segment: 'my-account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sign-in/sign-in.module#SignInPageModule', name: 'SignInPage', segment: 'sign-in', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10_angularfire2__["AngularFireModule"].initializeApp(firebaseConfig),
@@ -1329,18 +1344,20 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_22__pages_episode_details_episode_details__["a" /* EpisodeDetailsPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_my_favorites_my_favorites__["a" /* MyFavoritesPage */],
                 __WEBPACK_IMPORTED_MODULE_24__pages_reset_password_reset_password__["a" /* ResetPasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_sign_in_sign_in__["a" /* SignInPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_my_account_my_account__["a" /* MyAccountPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_export_popover_export_popover__["a" /* ExportPopoverPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_25__providers_api_http_api_http__["a" /* ApiHttpProvider */],
-                __WEBPACK_IMPORTED_MODULE_26__providers_favorite_favorite__["a" /* FavoriteProvider */],
-                __WEBPACK_IMPORTED_MODULE_29__pipes_to_array_to_array__["a" /* ToArrayPipe */],
+                __WEBPACK_IMPORTED_MODULE_27__providers_api_http_api_http__["a" /* ApiHttpProvider */],
+                __WEBPACK_IMPORTED_MODULE_28__providers_favorite_favorite__["a" /* FavoriteProvider */],
+                __WEBPACK_IMPORTED_MODULE_31__pipes_to_array_to_array__["a" /* ToArrayPipe */],
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__["a" /* SocialSharing */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_export_popover_export_popover__["a" /* ExportPopoverPage */],
-                __WEBPACK_IMPORTED_MODULE_27__services_auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_29__services_auth_service__["a" /* AuthService */],
                 __WEBPACK_IMPORTED_MODULE_9_angularfire2_auth__["AngularFireAuth"]
             ]
         })
@@ -1589,6 +1606,175 @@ var ToArrayPipe = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=to-array.js.map
+
+/***/ }),
+
+/***/ 830:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyAccountPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(784);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the MyAccountPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var MyAccountPage = /** @class */ (function () {
+    function MyAccountPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.isOnline = false;
+        this.userEmail = '';
+        this.userName = '';
+        this.UserIsOnline();
+    }
+    MyAccountPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad MyAccountPage');
+    };
+    MyAccountPage.prototype.UserIsOnline = function () {
+        if (__WEBPACK_IMPORTED_MODULE_2_firebase___default.a.auth().currentUser != null) {
+            this.isOnline = true;
+            this.user = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.auth().currentUser;
+            this.userName = this.user.displayName;
+            this.userEmail = this.user.email;
+            this.userPicture = this.user.photoURL;
+        }
+        else {
+            this.isOnline = false;
+        }
+    };
+    MyAccountPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-my-account',template:/*ion-inline-start:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/my-account/my-account.html"*/'<!--\n  Generated template for the SignInPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>My Account</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content [hidden]="!isOnline">\n  <div class="content" padding >\n    <div class="poster">\n      <div class="content">\n        <img [src]="userPicture" />\n      </div>\n    </div>\n    <div class="item-content">\n      <span class="title">{{userName}}</span>\n      <span><span class="key">Email: </span>{{userEmail}}</span>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/my-account/my-account.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+    ], MyAccountPage);
+    return MyAccountPage;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=my-account.js.map
+
+/***/ }),
+
+/***/ 832:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignInPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(784);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reset_password_reset_password__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__my_account_my_account__ = __webpack_require__(830);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the SignInPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SignInPage = /** @class */ (function () {
+    function SignInPage(navCtrl, navParams, auth, fb, platform, popoverCtrl, toast) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.auth = auth;
+        this.fb = fb;
+        this.platform = platform;
+        this.popoverCtrl = popoverCtrl;
+        this.toast = toast;
+        this.user_status = 'signin';
+        this.isOnline = false;
+        this.userEmail = '';
+        this.userName = '';
+        this.signinForm = fb.group({
+            email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].email])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required,
+                    __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].minLength(6)])]
+        });
+        this.UserIsOnline();
+    }
+    SignInPage.prototype.login = function () {
+        var _this = this;
+        var data = this.signinForm.value;
+        if (!data.email) {
+            return;
+        }
+        var credentials = {
+            email: data.email,
+            password: data.password
+        };
+        this.auth.signInWithEmail(credentials)
+            .then(function () { return _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__my_account_my_account__["a" /* MyAccountPage */]); }, function (error) { return _this.loginError = error.message; });
+    };
+    SignInPage.prototype.logout = function () {
+        var _this = this;
+        this.auth.signOut()
+            .then(function () { return _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]); }, function (error) { return console.log(error.message); });
+    };
+    SignInPage.prototype.UserIsOnline = function () {
+        if (__WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth().currentUser != null) {
+            this.isOnline = true;
+            this.user = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth().currentUser;
+            this.userName = this.user.displayName;
+            this.userEmail = this.user.email;
+            this.userPicture = this.user.photoURL;
+        }
+        else {
+            this.isOnline = false;
+        }
+    };
+    SignInPage.prototype.goToResetPassword = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__reset_password_reset_password__["a" /* ResetPasswordPage */]);
+    };
+    SignInPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-sign-in',template:/*ion-inline-start:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/sign-in/sign-in.html"*/'<!--\n  Generated template for the MyAccountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Sign in</ion-title>\n    <ion-buttons end [hidden]="!isOnline">\n      <button ion-button icon-only (click)="logout()">\n        <ion-icon name="log-out"></ion-icon> Logout\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n  <ion-list>\n    <form (ngSubmit)="login()" [formGroup]="signinForm">\n      <ion-list inset>\n        <ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\',\'dirty\']) }">\n          <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n        </ion-item>\n        <div ngxErrors="email" #emailErrors="ngxErrors">\n          <div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\', \'dirty\']">It should\n            be a valid email</div>\n        </div>\n        <ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n          <ion-input type="password" placeholder="Password"\n                     formControlName="password"></ion-input>\n        </ion-item>\n        <div ngxErrors="password" #passwordErrors="ngxErrors">\n          <div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be\n            at least 5 characters</div>\n        </div>\n      </ion-list>\n      <div padding-horizontal>\n        <div class="form-error">{{loginError}}</div>\n        <button ion-button full type="submit" [disabled]="!signinForm.valid">Log\n          in</button>\n        <div class="login-footer">\n          <p>\n            Si vous êtes un nouvel utilisateur, veuillez-vous inscrire dans l\'onglet "S\'inscrire"\n          </p>\n        </div>\n      </div>\n    </form>\n    <ion-buttons>\n      <button ion-button icon-end color="royal" (click)="goToResetPassword()">\n        Mot de passe oublié ?\n      </button>\n    </ion-buttons>\n  </ion-list>\n'/*ion-inline-end:"/Cours - Projet/Ionic/jled_UltimateMovieScrapper/src/pages/sign-in/sign-in.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* PopoverController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _g || Object])
+    ], SignInPage);
+    return SignInPage;
+    var _a, _b, _c, _d, _e, _f, _g;
+}());
+
+//# sourceMappingURL=sign-in.js.map
 
 /***/ }),
 

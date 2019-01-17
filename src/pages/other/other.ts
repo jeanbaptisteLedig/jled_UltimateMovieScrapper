@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { HomePage } from '../home/home';
 import firebase from 'firebase';
 import { ResetPasswordPage } from '../reset-password/reset-password';
+import { SignInPage } from '../sign-in/sign-in';
 /**
  * Generated class for the OtherPage page.
  *
@@ -115,5 +116,9 @@ export class OtherPage {
 
     goToResetPassword(): void {
         this.navCtrl.push(ResetPasswordPage);
+    }
+
+    goToSignIn(): void {
+        this.navCtrl.push(SignInPage);
     }
 }

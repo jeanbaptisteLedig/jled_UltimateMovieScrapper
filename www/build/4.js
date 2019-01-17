@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 824:
+/***/ 826:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordPageModule", function() { return ResetPasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SerieDetailsPageModule", function() { return SerieDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reset_password__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__serie_details__ = __webpack_require__(117);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ResetPasswordPageModule = /** @class */ (function () {
-    function ResetPasswordPageModule() {
+var SerieDetailsPageModule = /** @class */ (function () {
+    function SerieDetailsPageModule() {
     }
-    ResetPasswordPageModule = __decorate([
+    SerieDetailsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__reset_password__["a" /* ResetPasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__serie_details__["a" /* SerieDetailsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__reset_password__["a" /* ResetPasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__serie_details__["a" /* SerieDetailsPage */]),
             ],
         })
-    ], ResetPasswordPageModule);
-    return ResetPasswordPageModule;
+    ], SerieDetailsPageModule);
+    return SerieDetailsPageModule;
 }());
 
-//# sourceMappingURL=reset-password.module.js.map
+//# sourceMappingURL=serie-details.module.js.map
 
 /***/ })
 

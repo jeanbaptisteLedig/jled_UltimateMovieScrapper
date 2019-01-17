@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 825:
+/***/ 827:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeasonDetailsPageModule", function() { return SeasonDetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeriesPageModule", function() { return SeriesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__season_details__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__series__ = __webpack_require__(211);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SeasonDetailsPageModule = /** @class */ (function () {
-    function SeasonDetailsPageModule() {
+var SeriesPageModule = /** @class */ (function () {
+    function SeriesPageModule() {
     }
-    SeasonDetailsPageModule = __decorate([
+    SeriesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__season_details__["a" /* SeasonDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__series__["a" /* SeriesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__season_details__["a" /* SeasonDetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__series__["a" /* SeriesPage */]),
             ],
         })
-    ], SeasonDetailsPageModule);
-    return SeasonDetailsPageModule;
+    ], SeriesPageModule);
+    return SeriesPageModule;
 }());
 
-//# sourceMappingURL=season-details.module.js.map
+//# sourceMappingURL=series.module.js.map
 
 /***/ })
 
